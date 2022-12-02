@@ -21,6 +21,7 @@ pipeline {
             steps {
                 sh 'mvn package'
             }
+			}
         
 	stage ('Deploy') {
             steps {
@@ -31,4 +32,5 @@ pipeline {
 	}
 	}
     }
-}
+	}
+	
