@@ -21,13 +21,13 @@ pipeline {
             steps {
                 sh 'mvn package'
             }
-        }
-	    
+        
 	stage ('Deploy') {
             steps {
 	     sshagent(['tomcat_deploy']) {
-                sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven-deploy/target/teavm-maven-webapp-1.0-SNAPSHOT.war ubuntu@54.249.50.107:/opt/apache-tomcat-8.5.84/webapps'
-             }
+                sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven-deploy/target/teavm-maven-webapp-1.0-SNAPSHOT.war ubuntu@54.249.50.107:/opt/apache-tomcat-8.5.84/webapps'    
+	     }
+        }
 	}
 	}
     }
